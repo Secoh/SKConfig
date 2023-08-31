@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)'=='Release'">$(SolutionDir)\_release\$(PlatformShortName)\</OutDir>
+    <OutDir Condition="'$(Configuration)'=='Debug'">$(PUBLIC)\Linger\$(ProjectGuid)\$(MSBuildProjectDirectoryNoRoot)\$(Configuration)_$(Platform)\bin\</OutDir>
+    <IntDir>$(PUBLIC)\Linger\$(ProjectGuid)\$(MSBuildProjectDirectoryNoRoot)\$(Configuration)_$(Platform)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <AssemblerOutput Condition="'$(Configuration)'=='Release'">All</AssemblerOutput>
+      <AssemblerListingLocation Condition="'$(Configuration)'=='Release'">$(OutDir)asm\$(TargetName)\</AssemblerListingLocation>
+      <TreatWarningAsError Condition="'$(Configuration)'=='Release'">true</TreatWarningAsError>
+      <Optimization Condition="'$(Configuration)'=='Release'">MaxSpeed</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)'=='Release'">Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <ProfileGuidedDatabase>$(IntDir)$(TargetName).pgd</ProfileGuidedDatabase>
+      <LinkTimeCodeGenerationObjectFile>$(IntDir)$(TargetName).iobj</LinkTimeCodeGenerationObjectFile>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <IncrementalLinkDatabaseFile>$(IntDir)$(TargetName).ilk</IncrementalLinkDatabaseFile>
+      <ManifestFile>$(IntDir)$(TargetName)$(TargetExt).intermediate.manifest</ManifestFile>
+      <GenerateMapFile Condition="'$(Configuration)'=='Release'">true</GenerateMapFile>
+      <MapFileName Condition="'$(Configuration)'=='Release'">$(OutDir)asm\$(TargetName).map</MapFileName>
+      <TreatLinkerWarningAsErrors Condition="'$(Configuration)'=='Release'">true</TreatLinkerWarningAsErrors>
+      <LinkTimeCodeGeneration Condition="'$(Configuration)'=='Release'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <Lib>
+      <OutputFile>$(IntDir)$(TargetName)$(TargetExt)</OutputFile>
+      <TreatLibWarningAsErrors Condition="'$(Configuration)'=='Release'">true</TreatLibWarningAsErrors>
+    </Lib>
+    <ResourceCompile>
+      <NullTerminateStrings>true</NullTerminateStrings>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
