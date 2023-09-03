@@ -28,7 +28,7 @@
       <IncrementalLinkDatabaseFile>$(IntDir)$(TargetName).ilk</IncrementalLinkDatabaseFile>
       <ManifestFile>$(IntDir)$(TargetName)$(TargetExt).intermediate.manifest</ManifestFile>
       <GenerateMapFile Condition="'$(Configuration)'=='Release'">true</GenerateMapFile>
-      <MapFileName Condition="'$(Configuration)'=='Release'">$(OutDir)asm\$(TargetName).map</MapFileName>
+      <MapFileName Condition="'$(Configuration)'=='Release'">$(OutDir)asm\$(TargetName)\$(TargetName).map</MapFileName>
       <TreatLinkerWarningAsErrors Condition="'$(Configuration)'=='Release'">true</TreatLinkerWarningAsErrors>
       <LinkTimeCodeGeneration Condition="'$(Configuration)'=='Release'">UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
