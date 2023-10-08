@@ -1,0 +1,18 @@
+1.
+Configuration Manager -> Active solution platform -> Edit
+Select x86
+"Remove deleted platform..." - unchecked
+Remove
+
+2.
+Exclude SKLib itself temporarily
+Exclude temporarily any library project that go into multiple solutions
+
+3.
+Tools -> NuGet Package Manager -> Package Manager Console
+Run command:
+Get-Project -All | Foreach { $_.ConfigurationMAnager.DeletePlatform("Win32") }
+
+4.
+Return any previously excluded packages
+
